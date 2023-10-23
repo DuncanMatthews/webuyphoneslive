@@ -9,21 +9,6 @@ import ComputerBrands from './components/selectComputerBrand';
 import SmartPhoneBrands from './components/selectSmartPhoneBrand';
 import SellPhone from './components/selectiPhone';
 
-interface SellAppleLaptopsProps {
-  selectedModel: MacBookModel | null;
-  setSelectedModel: React.Dispatch<React.SetStateAction<MacBookModel | null>>;
-  selectedScreenSize: string | null;
-  setSelectedScreenSize: React.Dispatch<React.SetStateAction<string | null>>;
-  selectedReleaseDate: string | null;
-  setSelectedReleaseDate: React.Dispatch<React.SetStateAction<string | null>>;
-  selectedStorage: string | null;
-  setSelectedStorage: React.Dispatch<React.SetStateAction<string | null>>;
-  selectedProcessor: string | null;
-  setSelectedProcessor: React.Dispatch<React.SetStateAction<string | null>>;
-  setSelectedRam: React.Dispatch<React.SetStateAction<string | null>>;
-  selectedRam: string | null;
-}
-
 interface SellPhoneProps {
   selectediPhoneModel: iPhoneModel | null;
   setselectediPhoneModel: React.Dispatch<React.SetStateAction<iPhoneModel | null>>;
@@ -75,6 +60,7 @@ const ElectronicsSelector: FC = () => {
   const [selectedRam, SetSelectedRam] = useState<string | null>(null);
   const [selectediPhoneModel, setselectediPhoneModel] = useState<iPhoneModel | null>(null);
   const [selectedStorage, setSelectedStorage] = useState<string | null>(null);
+  const [selectedGPU, setSelectedGPU] = useState<string | null>(null);
 
   const [selectediPhoneStorage, setselectediPhoneStorage] = useState<string | null>(null);
   const [selectediPhoneColor, setselectediPhoneColor] = useState<string | null>(null);
@@ -90,7 +76,7 @@ const ElectronicsSelector: FC = () => {
   ];
 
   return (
-    <div className="relative flex h-full flex-col items-center justify-center md:flex-row">
+    <div className="relative flex h-screen flex-col items-center justify-center md:flex-row">
       {isSlideOverOpen && (
         <div className="absolute left-0 top-0 hidden h-[calc(100vh-4rem)] w-3/12 overflow-y-auto bg-gray-100 text-white shadow-lg md:block">
           <div className="flex h-full flex-col">
@@ -187,6 +173,15 @@ const ElectronicsSelector: FC = () => {
                         </div>
                       </>
                     )}
+                    {selectedGPU && (
+                      <>
+                        <hr className="border-gray-300" />
+                        <div className="my-4 flex items-center justify-between">
+                          <span className="font-medium text-gray-600">Ram</span>
+                          <span className="font-semibold text-gray-800">{selectedGPU}</span>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -260,6 +255,7 @@ const ElectronicsSelector: FC = () => {
         <h1 className="mx-auto mb-6 text-center text-2xl font-bold">
           Sell your device in seconds!
         </h1>
+
         {!selectedElectronic ? (
           <SelectCategory
             electronicsOptions={electronicsOptions}
@@ -304,6 +300,8 @@ const ElectronicsSelector: FC = () => {
             <ComputerBrands setSelectedComputerBrand={setSelectedComputerBrand} />
           ) : selectComputerBrand === 'Apple' ? (
             <SellAppleLaptops
+              selectedGPU={selectedGPU}
+              setSelectedGPU={setSelectedGPU}
               selectedModel={selectedModel}
               setSelectedRam={SetSelectedRam}
               selectedRam={selectedRam}

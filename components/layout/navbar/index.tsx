@@ -26,9 +26,9 @@ export default async function Navbar() {
               className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6"
             >
               <LogoSquare />
-              <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
+              {/* <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
                 {SITE_NAME}
-              </div>
+              </div> */}
             </Link>
             {menu.length ? (
               <ul className="hidden gap-6 text-sm md:flex md:items-center">
@@ -45,18 +45,33 @@ export default async function Navbar() {
               </ul>
             ) : null}
           </div>
-          <div className="mr-5 inline-flex space-x-4 pr-10">
+          <div className="mr-5 hidden space-x-4 pr-10 sm:inline-flex">
             <a className="whitespace-nowrap" href="#">
               About us
             </a>
-            <Link className="whitespace-nowrap" href="/sell-to-us">
+            <Link
+              className="whitespace-nowrap"
+              href="/sell-to-us"
+              role="link"
+              aria-label="Trade-in link for selling to us"
+            >
               Trade-in
             </Link>
-            <a className="whitespace-nowrap" href="#">
+
+            <a
+              className="whitespace-nowrap"
+              role="link"
+              aria-label="Trade-in link for selling to us"
+              href="#"
+            >
               Help
             </a>
           </div>
-          <div className="hidden justify-center md:flex md:w-1/3">
+          <div
+            role="link"
+            aria-label="Trade-in link for selling to us"
+            className="hidden  justify-center md:flex md:w-1/3"
+          >
             <Search />
           </div>
           <div className="flex justify-end md:w-1/3">

@@ -74,6 +74,33 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                 <div className="mb-4 w-full">
                   <Search />
                 </div>
+                <div className="mb-4 mr-5 flex w-full flex-col space-y-4 pr-10">
+                  <a
+                    href="#"
+                    className="block rounded bg-blue-600 px-4 py-2 text-white transition duration-150 ease-in-out hover:bg-blue-700"
+                  >
+                    About us
+                  </a>
+
+                  <Link
+                    href="/sell-to-us"
+                    role="link"
+                    aria-label="Trade-in link for selling to us"
+                    className="block rounded bg-blue-600 px-4 py-2 text-white transition duration-150 ease-in-out hover:bg-blue-700"
+                  >
+                    Trade-in
+                  </Link>
+
+                  <a
+                    href="#"
+                    role="link"
+                    aria-label="Trade-in link for selling to us"
+                    className="block rounded bg-blue-600 px-4 py-2 text-white transition duration-150 ease-in-out hover:bg-blue-700"
+                  >
+                    Help
+                  </a>
+                </div>
+
                 {menu.length ? (
                   <ul className="flex w-full flex-col">
                     {menu.map((item: Menu) => (

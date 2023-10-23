@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import Price from './price';
+import Price from './product/product-price';
 
 const Label = ({
   title,
@@ -14,14 +14,21 @@ const Label = ({
 }) => {
   return (
     <div
-      className={clsx('absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label', {
+      className={clsx('absolute bottom-0  left-0 flex w-full px-4 pb-4 @container/label', {
         'lg:px-20 lg:pb-[35%]': position === 'center'
       })}
     >
-      <div className="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
-        <h3 className="mr-4 line-clamp-2 flex-grow pl-2 leading-none tracking-tight">{title}</h3>
+      <div className="backdrop-blur-md-neutral-800   flex flex-col rounded-full p-1 text-xs font-semibold text-black dark:bg-black/70 dark:text-white">
+        <h4 className="mr-4 line-clamp-2 p-1  text-base leading-none tracking-tight">{title}</h4>
+        <div className="mb-2">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <span key={i} className="text-yellow-500">
+              {i < 5 ? '★' : '☆'}
+            </span>
+          ))}
+        </div>
         <Price
-          className="flex-none rounded-full bg-blue-600 p-2 text-white"
+          className=" mt-0 text-lg font-semibold text-black"
           amount={amount}
           currencyCode={currencyCode}
           currencyCodeClassName="hidden @[275px]/label:inline"

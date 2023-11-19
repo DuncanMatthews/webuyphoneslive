@@ -11,23 +11,42 @@ import 'rc-slider/assets/index.css';
 import { useEffect, useState } from 'react';
 import IPhoneDetails from './submitIphoneForm';
 
-type MacBookModel = 'Macbook Air' | 'Macbook Pro'; // Add other models as needed
+type iPhoneModel =
+  | 'iPhone 13'
+  | 'iPhone 13 Pro'
+  | 'iPhone 13 Pro Max'
+  | 'iPhone 13 mini'
+  | 'iPhone 12'
+  | 'iPhone 12 Pro'
+  | 'iPhone 12 Pro Max'
+  | 'iPhone 12 mini'
+  | 'iPhone 11'
+  | 'iPhone 11 Pro'
+  | 'iPhone 11 Pro Max'
+  | 'iPhone SE (2nd generation)'
+  | 'iPhone SE (1st generation)'
+  | 'iPhone XR'
+  | 'iPhone XS'
+  | 'iPhone XS Max'
+  | 'iPhone X'
+  | 'iPhone 8'
+  | 'iPhone 8 Plus';
 
-interface PriceProps {
-  selectediPhoneModel: string | null;
+interface IphonePriceSliderProps {
+  selectediPhoneModel: iPhoneModel | null;
   selectediPhoneStorage: string | null;
   selectediPhoneCondition: string | null;
   selectediPhoneColor: string | null;
   totalIphonePrice: number;
 }
 
-const IphonePriceSlider = ({
+const IphonePriceSlider: React.FC<IphonePriceSliderProps> = ({
   selectediPhoneModel,
   selectediPhoneStorage,
   selectediPhoneCondition,
   selectediPhoneColor,
   totalIphonePrice
-}: PriceProps) => {
+}: IphonePriceSliderProps) => {
   const [price, setPrice] = useState(0); // Initialize state with totalPrice prop
 
   useEffect(() => {
@@ -42,12 +61,12 @@ const IphonePriceSlider = ({
   ]);
   console.log(price);
 
-  const [iphoneDetails, setIphoneDetails] = useState({
-    selectediPhoneModel: selectediPhoneModel,
-    selectediPhoneStorage: selectediPhoneStorage,
-    selectediPhoneColor: selectediPhoneColor,
-    selectediPhoneCondition: selectediPhoneCondition
-  });
+  const iphoneDetails = {
+    selectediPhoneModel,
+    selectediPhoneStorage,
+    selectediPhoneCondition,
+    selectediPhoneColor
+  };
 
   const maxPrice = Math.round(totalIphonePrice * 1.05);
   const minPrice = Math.round(totalIphonePrice * 0.82);
@@ -88,9 +107,6 @@ const IphonePriceSlider = ({
               setPrice(value); // update state when slider changes
             }
           }}
-          trackStyle={{ backgroundColor: '#10B981', height: '6px' }}
-          handleStyle={{ borderColor: '#10B981' }}
-          railStyle={{ backgroundColor: '#D1D5DB', height: '6px' }}
           className="mb-4"
         />
 

@@ -6,7 +6,8 @@ import SustainabilityComponent from './components/featureComponent';
 import SmartPhoneBrands from './components/selectSmartPhoneBrand';
 import TradeInSteps from './components/tradeInSteps';
 import LaptopBrands from './sell-your-apple-macbook/components/selectedLaptopBrands';
-export default function Page() {
+
+export default function SellYouriPhone() {
   const router = useRouter();
   const [selectedElectronic, setSelectedElectronic] = useState<string | null>(null);
   const [selectedLaptopBrand, setSelectedLaptopBrand] = useState<string | null>(null);

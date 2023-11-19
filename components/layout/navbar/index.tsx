@@ -1,6 +1,7 @@
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
 import LogoSquare from 'components/logo-square';
+import SessionButton from 'components/menus/sessionButton';
 import { getMenu } from 'lib/shopify';
 import { Menu } from 'lib/shopify/types';
 import Link from 'next/link';
@@ -78,6 +79,7 @@ export default async function Navbar() {
             <Suspense fallback={<OpenCart />}>
               <Cart />
             </Suspense>
+            <SessionButton />
           </div>
         </div>
       </nav>

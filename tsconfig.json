@@ -3,6 +3,7 @@
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -13,6 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+
     "incremental": true,
     "baseUrl": ".",
     "noUncheckedIndexedAccess": true,
@@ -22,6 +24,17 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/api/revalidate/saveData.js",
+    "app/api/revalidate/saveData.js",
+    "app/api/users/submission/route.js",
+    "app/api/auth/[...nextauth]/route.ts",
+    "app/api/users/verifyemail"
+  ],
   "exclude": ["node_modules"]
 }

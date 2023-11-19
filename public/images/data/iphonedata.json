@@ -1,0 +1,361 @@
+[
+  {
+    "model": "iPhone 14 Pro Max",
+    "basePrice": 14500,
+    "storage": {
+      "128GB": "1500",
+      "256GB": "2500",
+      "512GB": "3500",
+      "1TB": "4500"
+    },
+    "colors": ["Deep Purple", "Space Black", "Silver", "Gold"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 14 Pro",
+    "basePrice": 13500,
+    "storage": {
+      "128GB": "1500",
+      "256GB": "2500",
+      "512GB": "3500",
+      "1TB": "4500"
+    },
+    "colors": ["Deep Purple", "Space Black", "Silver", "Gold"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 14 Plus",
+    "basePrice": 13000,
+    "storage": {
+      "128GB": "1500",
+      "256GB": "2500",
+      "512GB": "3500"
+    },
+    "colors": ["Blue,Purple,Black ,Gray", "Red,Yellow"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 14",
+    "basePrice": 12000,
+    "storage": {
+      "128GB": "1500",
+      "256GB": "2500",
+      "512GB": "3500"
+    },
+    "colors": ["Blue,Purple,Black ,Gray", "Red,Yellow"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 13 Pro Max",
+    "basePrice": 12500,
+    "storage": {
+      "128GB": "1500",
+      "256GB": "2500",
+      "512GB": "3500",
+      "1TB": "4500"
+    },
+    "colors": ["Graphite", "Gold", "Silver", "Sierra Blue"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 13 Pro",
+    "basePrice": 11500,
+    "storage": {
+      "128GB": "1500",
+      "256GB": "2500",
+      "512GB": "3500",
+      "1TB": "4500"
+    },
+    "colors": ["Graphite", "Gold", "Silver", "Sierra Blue"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 13",
+    "basePrice": 10000,
+    "storage": {
+      "128GB": "1500",
+      "256GB": "2500",
+      "512GB": "3500",
+      "1TB": "4500"
+    },
+    "colors": ["Starlight", "Midnight", "Blue", "Pink", "Red", "Green"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 13 mini",
+    "basePrice": 9000,
+    "storage": {
+      "128GB": "1500",
+      "256GB": "2500",
+      "512GB": "3500"
+    },
+    "colors": ["Starlight", "Midnight", "Pink", "Blue", "Green"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 12 Pro Max",
+    "basePrice": 11000,
+    "storage": {
+      "128GB": "1500",
+      "256GB": "2500",
+      "512GB": "3500",
+      "1TB": "4500"
+    },
+    "colors": ["Graphite", "Gold", "Silver", "Pacific Blue"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 12 Pro",
+    "basePrice": 10000,
+    "storage": {
+      "128GB": "1500",
+      "256GB": "2500",
+      "512GB": "3500",
+      "1TB": "4500"
+    },
+    "colors": ["Graphite", "Gold", "Silver", "Pacific Blue"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 12",
+    "basePrice": 9000,
+    "storage": {
+      "64GB": "500",
+      "128GB": "1000",
+      "256GB": "1750",
+      "512GB": "2500"
+    },
+    "colors": ["Black", "White", "Red", "Green", "Blue", "Purple"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 12 mini",
+    "basePrice": 12000,
+    "storage": {
+      "64GB": "500",
+      "128GB": "1000",
+      "256GB": "1500"
+    },
+    "colors": ["Black", "White", "Red", "Green", "Blue", "Purple"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 11",
+    "basePrice": 8000,
+    "storage": {
+      "64GB": "500",
+      "128GB": "1000",
+      "256GB": "1500"
+    },
+    "colors": ["Black", "White", "Green", "Yellow", "Purple", "Red"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 11 Pro",
+    "basePrice": 9000,
+    "storage": {
+      "64GB": "500",
+      "256GB": "1250",
+      "512GB": "1750"
+    },
+    "colors": ["Midnight Green", "Space Gray", "Silver"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 11 Pro Max",
+    "basePrice": 10000,
+    "storage": {
+      "64GB": "500",
+      "256GB": "1250",
+      "512GB": "1750"
+    },
+    "colors": ["Midnight Green", "Space Gray", "Silver"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone SE (2nd generation)",
+    "basePrice": 5000,
+    "storage": {
+      "64GB": "500",
+      "128GB": "1000",
+      "256GB": "1500"
+    },
+    "colors": ["Red", "White", "Black"],
+    "exteriorCondition": {
+      "Like New": "1500",
+      "Good": "1250",
+      "Fair": "800",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone XR",
+    "basePrice": 2500,
+    "storage": {
+      "64GB": "250",
+      "128GB": "500",
+      "256GB": "750"
+    },
+    "colors": ["Black", "White", "Coral", "Yellow", "Blue", "Red"],
+    "exteriorCondition": {
+      "Like New": "1000",
+      "Good": "600",
+      "Fair": "400",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone XS",
+    "basePrice": 2750,
+    "storage": {
+      "64GB": "250",
+      "256GB": "500",
+      "512GB": "1000"
+    },
+    "colors": ["Gold", "Space Gray", "Silver"],
+    "exteriorCondition": {
+      "Like New": "1000",
+      "Good": "600",
+      "Fair": "400",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone XS Max",
+    "basePrice": 3000,
+    "storage": {
+      "64GB": "250",
+      "256GB": "500",
+      "512GB": "1000"
+    },
+    "colors": ["Gold", "Space Gray", "Silver"],
+    "exteriorCondition": {
+      "Like New": "1000",
+      "Good": "600",
+      "Fair": "400",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone X",
+    "basePrice": 2000,
+    "storage": {
+      "64GB": "250",
+      "256GB": "500"
+    },
+    "colors": ["Space Gray", "Silver"],
+    "exteriorCondition": {
+      "Like New": "1000",
+      "Good": "600",
+      "Fair": "400",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 8",
+    "basePrice": 1500,
+    "storage": {
+      "64GB": "250",
+      "128GB": "500",
+      "256GB": "750"
+    },
+    "colors": ["Space Gray", "Silver", "Gold"],
+    "exteriorCondition": {
+      "Like New": "1000",
+      "Good": "600",
+      "Fair": "400",
+      "Poor": "200"
+    }
+  },
+  {
+    "model": "iPhone 8 Plus",
+    "basePrice": 1750,
+    "storage": {
+      "64GB": "250",
+      "128GB": "500",
+      "256GB": "750"
+    },
+    "colors": ["Space Gray", "Silver", "Gold"],
+    "exteriorCondition": {
+      "Like New": "1000",
+      "Good": "600",
+      "Fair": "400",
+      "Poor": "200"
+    }
+  }
+]

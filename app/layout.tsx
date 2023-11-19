@@ -3,6 +3,7 @@ import { ensureStartsWith } from 'lib/utils';
 import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
+import { AuthProvider } from './provider';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -41,11 +42,13 @@ const inter = Inter({
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="overflow-x-hidden bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
-        <Navbar />
-        <Suspense>
-          <main>{children}</main>
-        </Suspense>
+      <body className="overflow-x-hidden bg-gray-100 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
+        <AuthProvider>
+          <Navbar />
+          <Suspense>
+            <main>{children}</main>
+          </Suspense>
+        </AuthProvider>
       </body>
     </html>
   );

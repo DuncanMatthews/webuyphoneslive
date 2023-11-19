@@ -1,0 +1,26 @@
+import mongoose, { Document, Model, model, Schema } from 'mongoose';
+
+interface IUser extends Document {
+  username: string;
+  email: string;
+  password: string;
+  verifyToken: string;
+  verifyExpires: Date;
+  forgotPasswordToken: string;
+  forgotPasswordExpires: Date;
+  userIsVerified: boolean;
+}
+
+const userSchema = new Schema<IUser>({
+  email: { type: String, required: true, unique: true },
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  verifyToken: { type: String },
+  verifyExpires: { type: Date },
+  forgotPasswordToken: { type: String },
+  forgotPasswordExpires: { type: Date },
+  userIsVerified: { type: Boolean, default: false }
+});
+
+const userModel: Model<IUser> = mongoose.models?.user || model<IUser>('user', userSchema, 'users');
+export default userModel;

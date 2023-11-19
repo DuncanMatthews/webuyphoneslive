@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 type SmartPhoneBrand = {
@@ -12,6 +13,7 @@ type SmartPhoneBrandsProps = {
 
 const SmartPhoneBrands: React.FC<SmartPhoneBrandsProps> = ({
   setselectedPhoneBrand,
+
   setIsSlideOverOpen
 }) => {
   const brands: SmartPhoneBrand[] = [
@@ -21,6 +23,16 @@ const SmartPhoneBrands: React.FC<SmartPhoneBrandsProps> = ({
     { label: 'OnePlus', icon: 'oneplus.png' },
     { label: 'Oppo', icon: 'oppo.png' }
   ];
+
+  const router = useRouter(); // Creating an instance of the router
+
+  const handleBrandSelection = (brand: string) => {
+    if (brand === 'Apple') {
+      router.push('/sell-to-us/sell-your-apple-iphone'); // Redirecting to the sell-your-macbook page
+    } else {
+      setselectedPhoneBrand(brand);
+    }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -32,6 +44,7 @@ const SmartPhoneBrands: React.FC<SmartPhoneBrandsProps> = ({
             onClick={() => {
               setselectedPhoneBrand(brand.label);
               setIsSlideOverOpen(true);
+              handleBrandSelection(brand.label);
             }}
             className="flex flex-col items-center rounded-lg border p-4 shadow hover:bg-gray-200 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >

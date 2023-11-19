@@ -1,113 +1,40 @@
+// feature-slider.tsx
 'use client';
 
+import { GridTileImage } from 'components/grid/tile';
+import { Product } from 'lib/shopify/types';
+import Link from 'next/link';
 import 'rc-slider/assets/index.css';
-import React from 'react';
-
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import ProductCard from './productCard';
 
 const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5
+  },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-    slidesToSlide: 3 // optional, default to 1.
+    items: 4
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 1,
-    slidesToSlide: 2 // optional, default to 1.
+    items: 1
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1,
-    slidesToSlide: 1 // optional, default to 1.
+    items: 1
   }
 };
 
-const products = [
-  {
-    title: 'MacBook Air 13"',
-    description: '2020 - QWERTY - English',
-    price: '633.99',
-    rating: 4,
-    imageUrl: '/images/categories/apple-computer.png'
-  },
-  {
-    title: 'PlayStation 5',
-    description: '825 GB - White',
-    price: '473.00',
-    rating: 4,
-    imageUrl: '/images/categories/apple-computer.png'
-  },
-  {
-    title: 'PlayStation 5',
-    description: '825 GB - White',
-    price: '473.00',
-    rating: 4,
-    imageUrl: '/images/categories/apple-computer.png'
-  },
-  {
-    title: 'PlayStation 5',
-    description: '825 GB - White',
-    price: '473.00',
-    rating: 4,
-    imageUrl: '/images/categories/apple-computer.png'
-  },
-  {
-    title: 'PlayStation 5',
-    description: '825 GB - White',
-    price: '473.00',
-    rating: 4,
-    imageUrl: '/images/categories/apple-computer.png'
-  },
-  {
-    title: 'PlayStation 5',
-    description: '825 GB - White',
-    price: '473.00',
-    rating: 4,
-    imageUrl: '/images/categories/apple-computer.png'
-  },
-  {
-    title: 'PlayStation 5',
-    description: '825 GB - White',
-    price: '473.00',
-    rating: 4,
-    imageUrl: '/images/categories/apple-computer.png'
-  },
-  {
-    title: 'PlayStation 5',
-    description: '825 GB - White',
-    price: '473.00',
-    rating: 4,
-    imageUrl: '/images/categories/apple-computer.png'
-  },
-  {
-    title: 'PlayStation 5',
-    description: '825 GB - White',
-    price: '473.00',
-    rating: 4,
-    imageUrl: '/images/categories/apple-computer.png'
-  },
-  {
-    title: 'iPhone 8',
-    description: '825 GB - White',
-    price: '473.00',
-    rating: 4,
-    imageUrl: '/images/categories/smartphone.png'
-  }
-  // ... add other products here
-];
-
-interface ProductProps {
-  title: string;
-  description: string;
-  price: string;
-  rating: number;
-  imageUrl: string;
+interface FeaturedCarouselProps {
+  products: Product[];
 }
 
-const FeaturedCarousel: React.FC = () => {
+const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ products }) => {
+  if (!products?.length) return null;
+  const carouselProducts = [...products, ...products, ...products];
+
   return (
     <div className="container mb-5 pb-5">
       {' '}
@@ -122,10 +49,24 @@ const FeaturedCarousel: React.FC = () => {
         transitionDuration={100}
         infinite={true}
         centerMode={true}
-        removeArrowOnDeviceType={['tablet', 'mobile']}
+        removeArrowOnDeviceType={['mobile']}
       >
-        {products.map((product, productIdx) => (
-          <ProductCard key={productIdx} {...product} />
+        {carouselProducts.map((product, i) => (
+          <div key={`${product.handle}${i}`} className="">
+            <Link href={`/product/${product.handle}`} className=" h-full w-full">
+              <GridTileImage
+                alt={product.title}
+                label={{
+                  title: product.title,
+                  amount: product.priceRange.maxVariantPrice.amount,
+                  currencyCode: product.priceRange.maxVariantPrice.currencyCode
+                }}
+                src={product.featuredImage?.url}
+                fill
+                sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              />
+            </Link>
+          </div>
         ))}
       </Carousel>
     </div>

@@ -8,6 +8,7 @@ import type { CartItem } from 'lib/shopify/types';
 import {
   // @ts-ignore
   experimental_useFormState as useFormState,
+  // @ts-ignore
   experimental_useFormStatus as useFormStatus
 } from 'react-dom';
 

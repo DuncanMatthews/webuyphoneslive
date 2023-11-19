@@ -6,9 +6,11 @@ import { addItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
 import { ProductVariant } from 'lib/shopify/types';
 import { useSearchParams } from 'next/navigation';
+
 import {
   // @ts-ignore
   experimental_useFormState as useFormState,
+  // @ts-ignore
   experimental_useFormStatus as useFormStatus
 } from 'react-dom';
 
@@ -21,7 +23,7 @@ function SubmitButton({
 }) {
   const { pending } = useFormStatus();
   const buttonClasses =
-    'relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 tracking-wide text-white';
+    'ml-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500';
   const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
 
   if (!availableForSale) {
@@ -34,16 +36,18 @@ function SubmitButton({
 
   if (!selectedVariantId) {
     return (
-      <button
-        aria-label="Please select an option"
-        aria-disabled
-        className={clsx(buttonClasses, disabledClasses)}
-      >
-        <div className="absolute left-0 ml-4">
-          <PlusIcon className="h-5" />
-        </div>
-        Add To Cart
-      </button>
+      <span>
+        <button
+          aria-label="Please select an option"
+          aria-disabled
+          className={clsx(buttonClasses, disabledClasses)}
+        >
+          <div className="absolute left-0 ml-4">
+            <PlusIcon className="h-5" />
+          </div>
+          Add To Cart
+        </button>
+      </span>
     );
   }
 
@@ -59,8 +63,12 @@ function SubmitButton({
         disabledClasses: pending
       })}
     >
-      <div className="absolute left-0 ml-4">
-        {pending ? <LoadingDots className="mb-3 bg-white" /> : <PlusIcon className="h-5" />}
+      <div className="left-0 flex justify-between ">
+        {pending ? (
+          <LoadingDots className="mb-0 mr-2 bg-white" />
+        ) : (
+          <PlusIcon className="ml-0 mr-2 h-5" />
+        )}
       </div>
       Add To Cart
     </button>

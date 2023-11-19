@@ -1,4 +1,4 @@
-const Price = ({
+const CarouselPrice = ({
   amount,
   className,
   currencyCode = 'USD',
@@ -21,4 +21,4 @@ const Price = ({
   </div>
 );
 
-export default Price;
+export default CarouselPrice;

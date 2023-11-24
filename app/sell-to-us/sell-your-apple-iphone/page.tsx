@@ -58,8 +58,7 @@ const SellPhone: React.FC = () => {
   const [selectediPhoneColor, setselectediPhoneColor] = useState<string | null>(null);
   const [selectediPhoneStorage, setselectediPhoneStorage] = useState<string | null>(null);
   const [selectediPhoneCondition, setselectediPhoneCondition] = useState<string | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [ProductData, setProductData] = useState<any>(null);
+
   const [isSlideOverOpen, setIsSlideOverOpen] = useState(false);
 
   const getProgressStage = () => {
@@ -111,7 +110,7 @@ const SellPhone: React.FC = () => {
   }, [selectediPhoneModelPrice, selectedStorageOptionPrice, selectediPhoneConditionPrice]);
 
   return (
-    <div className="min-h-screen">
+    <div className="dark:text-white">
       {/* Progress Indicator */}
       <div className="min-w-fit	">
         <div className="flex min-w-fit  items-center	justify-center">
@@ -166,7 +165,7 @@ const SellPhone: React.FC = () => {
         </div>
       )}
 
-      <div className="flex h-full flex-col items-center justify-center">
+      <div className="dark:text-white">
         {/* Model Selection */}
         {!selectediPhoneModel && (
           <div className="flex flex-col items-center justify-center py-6 ">

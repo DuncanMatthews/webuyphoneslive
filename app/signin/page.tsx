@@ -1,7 +1,7 @@
 'use client';
 
 import SignUp from 'app/signup/page';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 import { useEffect, useState } from 'react';
@@ -15,6 +15,8 @@ export default function SignInForm() {
   const [showSignInModal, setShowSignInModal] = useState(true);
   const [showSignUpModal, setShowSignUpModal] = useState(false); // Assuming you want the sign-up modal to show by default
   const [success, setSuccess] = useState(false);
+  const { data: session, status } = useSession();
+  const loading = status === 'loading';
 
   const toggleSignInModal = () => {
     setShowSignInModal(false); // Show sign-in modal
@@ -22,14 +24,15 @@ export default function SignInForm() {
   };
 
   useEffect(() => {
-    // This effect will run after the component mounts and after every render when isSubmitting is true.
-    // If there was an error or the submission was successful, it will handle the necessary state updates and redirection.
+    if (session) {
+      setShowSignInModal(false); // Close the sign-in modal when the user is signed in
+    }
 
     // Reset isSubmitting after handling submission result
     if (isSubmitting) {
       setIsSubmitting(false);
     }
-  }, [isSubmitting, error, router]);
+  }, [session, isSubmitting, error, router]);
 
   const handleGoogleSignIn = async () => {};
 
@@ -55,6 +58,8 @@ export default function SignInForm() {
       setError('Error occurred during sign in.');
     }
   };
+
+  if (loading) return <div>Loading...</div>;
 
   return (
     <div className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-50">
@@ -122,15 +127,15 @@ export default function SignInForm() {
             >
               Sign in
             </button>
+            {success && (
+              <div className="mt-4 text-center">
+                <p className="mb-2">Signed in Succesfully</p>
+              </div>
+            )}
           </div>
         </form>
       )}
-      {showSignUpModal && <SignUp />}
-      {success && (
-        <div className="mt-4 text-center">
-          <p className="mb-2">Account Created Successfully</p>
-        </div>
-      )}
+      {!showSignInModal && !session && <SignUp />}
     </div>
   );
 }

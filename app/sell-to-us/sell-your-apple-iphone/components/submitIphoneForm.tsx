@@ -1,6 +1,7 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 interface IPhoneDetailsProps {
@@ -8,17 +9,20 @@ interface IPhoneDetailsProps {
   selectediPhoneStorage: string | null;
   selectediPhoneColor: string | null;
   selectediPhoneCondition: string | null;
+  selectediPhonePrice: number;
 }
 
 const IPhoneDetails: React.FC<IPhoneDetailsProps> = ({
   selectediPhoneModel,
   selectediPhoneStorage,
   selectediPhoneColor,
-  selectediPhoneCondition
+  selectediPhoneCondition,
+  selectediPhonePrice
 }) => {
   const { data: session } = useSession();
   const [sucessMessage, setSucessMessage] = React.useState<string | null>(null);
   const [isLoading, setLoading] = useState(false);
+  const router = useRouter();
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -43,7 +47,7 @@ const IPhoneDetails: React.FC<IPhoneDetailsProps> = ({
           storage: selectediPhoneStorage,
           condition: selectediPhoneCondition,
           color: selectediPhoneColor,
-          price: 100,
+          price: selectediPhonePrice,
           userId: session.user.id // Include the user's ID in the submission
         })
       });
@@ -56,6 +60,7 @@ const IPhoneDetails: React.FC<IPhoneDetailsProps> = ({
       console.log('Submission successful:', data);
       setLoading(false);
       setSucessMessage('Submission successful!');
+      router.push('/thank-you'); // Redirect to the thank you page
     } catch (error) {
       console.error('Submission error:', error);
       setSucessMessage('Submission failed!');

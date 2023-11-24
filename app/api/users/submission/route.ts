@@ -1,6 +1,6 @@
 import connectToDB from 'app/utils/connectMongo';
+import PhoneSubmission from 'app/utils/model/retrieveIphoneSubmissions';
 import { NextResponse } from 'next/server';
-import PhoneModel from '../../../utils/model/iphone';
 import MacBookModel from '../../../utils/model/macbook'; // Import the MacBook model
 
 export async function POST(request: Request, response: Response) {
@@ -12,7 +12,7 @@ export async function POST(request: Request, response: Response) {
     if (data.phoneModel) {
       // Handle iPhone submission
       const { phoneModel, storage, condition, price, color, userId } = data;
-      await PhoneModel.create({ phoneModel, storage, condition, price, color, userId });
+      await PhoneSubmission.create({ phoneModel, storage, condition, price, color, userId });
       console.log('iPhone entry created successfully');
     } else if (data.macModel) {
       // Handle MacBook submission

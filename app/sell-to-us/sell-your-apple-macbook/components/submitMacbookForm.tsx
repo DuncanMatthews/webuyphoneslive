@@ -1,12 +1,13 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 type MacBookModel = 'Macbook Air' | 'Macbook Pro'; // Add other models as needed
 
 interface PriceProps {
-  totalPrice: number;
+  selectedMacbookPrice: number;
   selectedModel: MacBookModel | null;
   selectedScreenSize: string | null;
   selectedReleaseDate: string | null;
@@ -17,7 +18,7 @@ interface PriceProps {
 }
 
 const SubmitMacbookForm: React.FC<PriceProps> = ({
-  totalPrice,
+  selectedMacbookPrice,
   selectedModel,
   selectedScreenSize,
   selectedReleaseDate,
@@ -31,6 +32,7 @@ const SubmitMacbookForm: React.FC<PriceProps> = ({
   const [isLoading, setLoading] = useState(false);
   const [submissionDate, setSubmissionDate] = useState<Date | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -62,7 +64,7 @@ const SubmitMacbookForm: React.FC<PriceProps> = ({
           ram: selectedRam,
           storage: selectedStorage,
           gpu: selectedGPU,
-          price: totalPrice,
+          price: selectedMacbookPrice,
           userId: session.user.id, // Include the user's ID in the submission
           submissionDate: now.toISOString() // Include the submission date in ISO string format
         })
@@ -81,6 +83,7 @@ const SubmitMacbookForm: React.FC<PriceProps> = ({
       const data = await response.json();
       console.log('Submission successful:', data);
       setLoading(false);
+      router.push('/thank-you'); // Redirect to the thank you page
     } catch (error) {
       console.error('Submission error:', error);
       setSucessMessage('Submission failed!');

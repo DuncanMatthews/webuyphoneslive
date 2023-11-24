@@ -62,7 +62,7 @@ export default function SideBar({
   selectediPhoneCondition
 }: SideBarProps) {
   return (
-    <div className="absolute bottom-0 left-0 top-[8.7rem]	 z-40 min-h-[1800px]  w-[350px]  bg-white shadow-xl">
+    <div className="absolute bottom-0 left-0 top-[8.7rem] z-40 hidden min-h-[1800px] w-[350px] bg-white shadow-xl md:block">
       <div className="relative overflow-scroll px-6	   py-8">
         {selectediPhoneModel && (
           <div className="flex flex-col justify-center p-6">

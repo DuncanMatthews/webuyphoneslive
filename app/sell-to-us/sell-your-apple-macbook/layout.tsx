@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <section className="flex min-h-screen flex-col">
-      <div className="mt-10 flex  flex-grow justify-center">{children}</div>
+      <div className="mt-10 flex flex-grow justify-center px-4 md:px-8">{children}</div>
     </section>
   );
 }

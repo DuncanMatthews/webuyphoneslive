@@ -41,8 +41,8 @@ const authOptions = {
 
         const user = {
           id: userr.id.toString(),
-          name: userr.username,
-          email: userr.email
+          email: userr.email,
+          isAdmin: userr.isAdmin
         };
 
         return user;
@@ -51,10 +51,16 @@ const authOptions = {
   ],
 
   callbacks: {
-    async jwt({ token, account }: { token: any; account: any }) {
+    async jwt({ token, user, account }: { token: any; account: any; user: any }) {
       if (account) {
         token.accessToken = account.access_token;
         token.idToken = account.id_token;
+      }
+
+      if (user) {
+        token.sub = user.id;
+        token.email = user.email;
+        token.isAdmin = user.isAdmin;
       } else {
         token.jwt = JWT.sign(
           { name: token.name, email: token.email, sub: token.sub },
@@ -69,6 +75,10 @@ const authOptions = {
     async session({ session, token }: { session: any; token: any }) {
       if (token.sub) {
         session.user.id = token.sub;
+        session.user.name = token.name;
+        session.user.email = token.email;
+        session.user.isAdmin = token.isAdmin;
+
         return session;
       }
       return session;

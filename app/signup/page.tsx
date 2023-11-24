@@ -71,18 +71,19 @@ function SignUp() {
       {showSignUpModal && (
         <form onSubmit={handleSubmit} className="w-96 rounded-xl bg-white p-8 shadow-lg">
           <h2 className="mb-4 text-2xl font-semibold">Create new Account</h2>
-          <input
-            type="text"
-            placeholder="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="mb-4 w-full rounded-md border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none"
-          />
+
           <input
             type="email"
             placeholder="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="mb-4 w-full rounded-md border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none"
+          />
+          <input
+            type="mobile"
+            placeholder="cell"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             className="mb-4 w-full rounded-md border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none"
           />
           <input

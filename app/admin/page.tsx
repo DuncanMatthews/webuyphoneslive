@@ -1,11 +1,10 @@
 import PhoneSubmissionsTable from './components/phoneSubmissionsTable';
 
-const Admin = () => {
+// `app/dashboard/page.tsx` is the UI for the `/dashboard` URL
+export default function Page() {
   return (
     <div>
       <PhoneSubmissionsTable />
     </div>
   );
-};
-
-export default Admin;
+}

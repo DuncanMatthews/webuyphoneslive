@@ -75,7 +75,6 @@ const authOptions = {
     async session({ session, token }: { session: any; token: any }) {
       if (token.sub) {
         session.user.id = token.sub;
-        session.user.name = token.name;
         session.user.email = token.email;
         session.user.isAdmin = token.isAdmin;
 

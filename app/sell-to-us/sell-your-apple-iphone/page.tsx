@@ -170,7 +170,7 @@ const SellPhone: React.FC = () => {
         {!selectediPhoneModel && (
           <div className="flex flex-col items-center justify-center py-6 ">
             <h2 className="mb-4 text-xl font-semibold">Select your iPhone model</h2>
-            <div className="my-6 grid grid-cols-2 gap-4 focus:ring-indigo-500 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 focus:ring-indigo-500 md:grid-cols-4">
               {!selectediPhoneModel &&
                 uniqueModels.map((models, index) => (
                   <button

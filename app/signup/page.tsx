@@ -62,8 +62,6 @@ function SignUp() {
     if (response.status === 201) {
       setSuccess(true);
     }
-
-    console.log(responseData);
   }
 
   return (

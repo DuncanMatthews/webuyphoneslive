@@ -20,8 +20,6 @@ export async function POST(request: Request, response: Response) {
   try {
     const alreadyExistsEmail = await userModal.findOne({ email }).exec();
 
-    console.log(alreadyExistsEmail);
-
     if (alreadyExistsEmail) {
       return NextResponse.json({ message: 'Email is already registered!' }, { status: 409 });
     }

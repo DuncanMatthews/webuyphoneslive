@@ -1,7 +1,7 @@
 'use client';
 
 // SessionButton.tsx (Client Component)
-import { signOut, useSession } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 function SessionButton() {
   const { data: session } = useSession();
@@ -10,7 +10,15 @@ function SessionButton() {
     await signOut({ redirect: false });
   };
 
-  return session ? <button onClick={handleLogout}>Logout</button> : <p>You are not logged in</p>;
+  const handleLogin = async () => {
+    await signIn();
+  };
+
+  return session ? (
+    <button onClick={handleLogout}>Logout</button>
+  ) : (
+    <button onClick={handleLogin}>Login</button>
+  );
 }
 
 export default SessionButton;

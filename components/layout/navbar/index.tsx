@@ -47,7 +47,7 @@ export default async function Navbar() {
             ) : null}
           </div>
           <div className="mr-5 hidden space-x-4 pr-10 sm:inline-flex">
-            <a className="whitespace-nowrap" href="#">
+            <a className="whitespace-nowrap" href="/about-webuyphones">
               About us
             </a>
             <Link

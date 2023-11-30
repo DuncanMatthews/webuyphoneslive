@@ -1,12 +1,11 @@
 'use client';
 
-import { ArrowRightIcon, CheckIcon, HeartIcon } from '@heroicons/react/24/outline';
+import { CheckIcon, HeartIcon } from '@heroicons/react/24/outline';
 import { AddToCart } from 'components/cart/add-to-cart';
 import Prose from 'components/prose';
 import SlideOver from 'components/sliderover';
 import { Product } from 'lib/shopify/types';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 import ProductPrice from './product-price';
 import { VariantSelector } from './variant-selector';
@@ -90,8 +89,14 @@ export function ProductDescription({ product }: { product: Product }) {
                 <div className="rounded-md bg-gray-200 p-2 sm:p-4">
                   <CheckIcon className="h-4 w-4 text-gray-500 sm:h-6 sm:w-6" />
                 </div>
+                <span className="font-medium text-gray-700 dark:text-white">1-year warranty.</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="rounded-md bg-gray-200 p-2 sm:p-4">
+                  <CheckIcon className="h-4 w-4 text-gray-500 sm:h-6 sm:w-6" />
+                </div>
                 <span className="font-medium text-gray-700 dark:text-white">
-                  Free 30-day returns <br /> 1-year warranty.
+                  Works with all carriers
                 </span>
               </div>
               <div className="flex items-center space-x-3">
@@ -99,15 +104,7 @@ export function ProductDescription({ product }: { product: Product }) {
                   <CheckIcon className="h-4 w-4 text-gray-500 sm:h-6 sm:w-6" />
                 </div>
                 <span className="font-medium text-gray-700 dark:text-white">
-                  Works with all carriers <br /> Learn about unlocked phones
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="rounded-md bg-gray-200 p-2 sm:p-4">
-                  <CheckIcon className="h-4 w-4 text-gray-500 sm:h-6 sm:w-6" />
-                </div>
-                <span className="font-medium text-gray-700 dark:text-white">
-                  Verified refurbished in the US
+                  Certified Pre Owned
                 </span>
               </div>
             </div>
@@ -123,20 +120,20 @@ export function ProductDescription({ product }: { product: Product }) {
         />
       ) : null}
       <div className="mt-3">
-        <Link href="#" onClick={toggleSlider}>
+        {/* <Link href="#" onClick={toggleSlider}>
           <div className="flex flex-row items-center justify-between border-b py-5 hover:bg-slate-300">
             <span className="px-3">
-              <h3 className="font-light">Technical specifications</h3>
+              <h4 className="font-light">Technical specifications</h4>
             </span>
             <span className="px-3">
               <ArrowRightIcon height={12} />
             </span>
           </div>
-        </Link>
-        <Link href="#" onClick={toggleSlider}>
+        </Link> */}
+        {/* <Link href="#" onClick={toggleSlider}>
           <div className="flex flex-row items-center justify-between border-b py-5">
             <span>
-              <h3 className="px-3 font-light">Technical specifications</h3>
+              <h4 className="px-3 font-light">Technical specifications</h4>
             </span>
             <span className="px-3">
               <ArrowRightIcon height={12} />
@@ -146,13 +143,13 @@ export function ProductDescription({ product }: { product: Product }) {
         <Link href="#" onClick={toggleSlider}>
           <div className="flex flex-row items-center justify-between border-b py-5 hover:bg-slate-300">
             <span className="px-3">
-              <h3 className="font-light">Technical specifications</h3>
+              <h4 className="font-light">Technical specifications</h4>
             </span>
             <span className="px-3">
               <ArrowRightIcon height={12} />
             </span>
           </div>
-        </Link>
+        </Link> */}
 
         {isOpen && <SlideOver />}
       </div>

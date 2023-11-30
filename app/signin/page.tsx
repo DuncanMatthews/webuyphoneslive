@@ -26,6 +26,7 @@ export default function SignInForm() {
   useEffect(() => {
     if (session) {
       setShowSignInModal(false); // Close the sign-in modal when the user is signed in
+      router.push('/admin'); // Redirect to the home page
     }
 
     // Reset isSubmitting after handling submission result

@@ -29,6 +29,8 @@ const SmartPhoneBrands: React.FC<SmartPhoneBrandsProps> = ({
   const handleBrandSelection = (brand: string) => {
     if (brand === 'Apple') {
       router.push('/sell-to-us/sell-your-apple-iphone'); // Redirecting to the sell-your-macbook page
+    } else if (brand == 'Samsung') {
+      router.push('/sell-to-us/sell-your-samsung-phone');
     } else {
       setselectedPhoneBrand(brand);
     }

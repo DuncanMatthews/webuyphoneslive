@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 interface Submission {
   _id: string;
   userId: {
-    username: string;
+    cellphone: string;
     email: string;
   };
   phoneModel: string;
@@ -23,7 +23,7 @@ interface Submission {
 interface MacbookSubmissions {
   _id: string;
   userId: {
-    username: string;
+    cellphone: string;
     email: string;
   };
   macModel: string;
@@ -189,7 +189,7 @@ const PhoneSubmissionsTable = () => {
                 {submissions.map((submission: Submission) => (
                   <tr key={submission._id} className="bg-white">
                     <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-                      {submission.userId?.username} ({submission.userId?.email})
+                      {submission.userId?.cellphone} ({submission.userId?.email})
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-500">
                       <div>
@@ -275,7 +275,7 @@ const PhoneSubmissionsTable = () => {
                 {macbookSubmissions.map((macbookSubmission: MacbookSubmissions) => (
                   <tr key={macbookSubmission._id} className="bg-white">
                     <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-                      {macbookSubmission.userId?.username} ({macbookSubmission.userId?.email})
+                      {macbookSubmission.userId?.cellphone} ({macbookSubmission.userId?.email})
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-500">
                       <div>

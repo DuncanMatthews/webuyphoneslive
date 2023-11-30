@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 function SignUp() {
-  const [username, setUsername] = useState('');
+  const [cellphone, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [success, setSuccess] = useState(false);
@@ -49,7 +49,7 @@ function SignUp() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: username,
+        cellphone: cellphone,
         email: email,
         password: password
       })
@@ -82,7 +82,7 @@ function SignUp() {
           <input
             type="mobile"
             placeholder="cell"
-            value={username}
+            value={cellphone}
             onChange={(e) => setUsername(e.target.value)}
             className="mb-4 w-full rounded-md border border-gray-300 px-4 py-2 focus:border-indigo-500 focus:outline-none"
           />

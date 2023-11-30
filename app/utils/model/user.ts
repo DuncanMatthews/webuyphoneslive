@@ -21,7 +21,7 @@ const userSchema = new Schema<IUser>({
   forgotPasswordExpires: { type: Date },
   userIsVerified: { type: Boolean, default: false },
   isAdmin: { type: Boolean, default: false },
-  cellphone: { type: String, required: true }
+  cellphone: { type: String, required: false }
 });
 
 const userModel: Model<IUser> = mongoose.models?.user || model<IUser>('user', userSchema, 'users');

@@ -13,23 +13,15 @@ interface SendEmailProps {
 export async function POST(request: Request, response: Response) {
   await connectToDB();
 
-  const { username, email, password } = await request.json();
+  const { cellphone, email, password } = await request.json();
 
   try {
     const alreadyExistsEmail = await userModal.findOne({ email }).exec();
 
+    console.log(alreadyExistsEmail);
+
     if (alreadyExistsEmail) {
       return NextResponse.json({ message: 'Email is already registered!' }, { status: 409 });
-    }
-  } catch (err) {
-    return NextResponse.json({ message: 'Something went wrong!' }, { status: 500 });
-  }
-
-  try {
-    const alreadyExistsName = await userModal.findOne({ username }).exec();
-
-    if (alreadyExistsName) {
-      return NextResponse.json({ message: 'Name is already registered!' }, { status: 409 });
     }
   } catch (err) {
     return NextResponse.json({ message: 'Something went wrong!' }, { status: 500 });
@@ -39,7 +31,7 @@ export async function POST(request: Request, response: Response) {
 
   try {
     const newUser = new userModal({
-      username,
+      cellphone,
       email,
       password: hashedPassword
     });

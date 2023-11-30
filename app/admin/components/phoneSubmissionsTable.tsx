@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 interface Submission {
   _id: string;
   userId: {
-    name: string;
     email: string;
   };
   phoneModel: string;
@@ -23,7 +22,6 @@ interface Submission {
 interface MacbookSubmissions {
   _id: string;
   userId: {
-    name: string;
     email: string;
   };
   macModel: string;
@@ -103,6 +101,7 @@ const PhoneSubmissionsTable = () => {
         const response = await fetch('/api/submissions/getiPhoneSubmissions');
         if (response.ok) {
           const data = await response.json();
+          console.log('phone submissions', data);
           setSubmissions(data);
         } else {
           console.error('Error fetching submissions', response.statusText);
@@ -123,6 +122,7 @@ const PhoneSubmissionsTable = () => {
         const response = await fetch('/api/submissions/getMacbookSubmissions');
         if (response.ok) {
           const data = await response.json();
+          console.log('macbook submissions', data);
           setMacbookSubmissions(data);
         } else {
           console.error('Error fetching submissions', response.statusText);
@@ -189,7 +189,7 @@ const PhoneSubmissionsTable = () => {
                 {submissions.map((submission: Submission) => (
                   <tr key={submission._id} className="bg-white">
                     <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-                      {submission.userId?.name} ({submission.userId?.email})
+                      {submission.userId?.email}
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-500">
                       <div>
@@ -275,7 +275,7 @@ const PhoneSubmissionsTable = () => {
                 {macbookSubmissions.map((macbookSubmission: MacbookSubmissions) => (
                   <tr key={macbookSubmission._id} className="bg-white">
                     <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-                      {macbookSubmission.userId?.name} ({macbookSubmission.userId?.email})
+                      {macbookSubmission.userId?.email}
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-500">
                       <div>

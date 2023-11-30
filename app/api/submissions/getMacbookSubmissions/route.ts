@@ -11,6 +11,8 @@ export async function GET(request: Request) {
     // Retrieve phone data from the database
     const data = await MacBookModel.find().populate('userId');
 
+    console.log('user', data);
+
     // Respond with the retrieved data
     return new NextResponse(JSON.stringify(data), {
       status: 200,

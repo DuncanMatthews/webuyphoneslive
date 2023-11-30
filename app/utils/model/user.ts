@@ -2,6 +2,7 @@ import mongoose, { Document, Model, model, Schema } from 'mongoose';
 
 interface IUser extends Document {
   email: string;
+  name: string;
   password: string;
   verifyToken: string;
   verifyExpires: Date;
@@ -14,6 +15,7 @@ interface IUser extends Document {
 
 const userSchema = new Schema<IUser>({
   email: { type: String, required: true, unique: true },
+  name: { type: String, required: false },
   password: { type: String, required: true },
   verifyToken: { type: String },
   verifyExpires: { type: Date },

@@ -15,6 +15,8 @@ export async function POST(request: Request, response: Response) {
 
   const { cellphone, email, password } = await request.json();
 
+  console.log(cellphone, email, password);
+
   try {
     const alreadyExistsEmail = await userModal.findOne({ email }).exec();
 

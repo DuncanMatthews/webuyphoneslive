@@ -33,23 +33,6 @@ interface MacBookDataItem {
   };
 }
 
-interface SellAppleLaptopsProps {
-  selectedModel: MacBookModel | null;
-  setSelectedModel: React.Dispatch<React.SetStateAction<MacBookModel | null>>;
-  selectedScreenSize: string | null;
-  setSelectedScreenSize: React.Dispatch<React.SetStateAction<string | null>>;
-  selectedReleaseDate: string | null;
-  setSelectedReleaseDate: React.Dispatch<React.SetStateAction<string | null>>;
-  selectedStorage: string | null;
-  setSelectedStorage: React.Dispatch<React.SetStateAction<string | null>>;
-  selectedProcessor: string | null;
-  setSelectedProcessor: React.Dispatch<React.SetStateAction<string | null>>;
-  setSelectedRam: React.Dispatch<React.SetStateAction<string | null>>;
-  selectedRam: string | null;
-  selectedGPU: string | null;
-  setSelectedGPU: React.Dispatch<React.SetStateAction<string | null>>;
-}
-
 const SellAppleLaptops: React.FC = () => {
   const [data, setData] = useState<MacBookDataItem[]>([]);
 
@@ -80,55 +63,54 @@ const SellAppleLaptops: React.FC = () => {
     new Set(data.map((item: MacBookDataItem) => item.model))
   );
 
-  function getTotalPrice(
-    selectedModel: MacBookModel | null,
-    selectedScreenSize: string | null,
-    selectedReleaseDate: string | null,
-    selectedProcessor: string | null,
-    selectedRam: string | null,
-    selectedStorage: string | null,
-    selectedGPU: string | null
-  ): number | null {
-    if (
-      !selectedModel ||
-      !selectedScreenSize ||
-      !selectedReleaseDate ||
-      (!selectedProcessor && !selectedRam && !selectedStorage && !selectedGPU)
-    ) {
-      return null;
-    }
-
-    const matchedItems = data.filter(
-      (item) =>
-        item.model === selectedModel &&
-        item.screenSize === selectedScreenSize &&
-        item.releaseDate === selectedReleaseDate &&
-        item.processor.type === selectedProcessor &&
-        item.ram.size === selectedRam &&
-        item.storage.type === selectedStorage &&
-        item.gpu.type === selectedGPU
-    );
-
-    console.log('Matched Items:', matchedItems);
-
-    if (matchedItems.length > 0) {
-      const totalPrice = matchedItems.reduce((acc, item) => {
-        const processorPrice = item.processor && item.processor.price ? item.processor.price : 0;
-        const ramPrice = item.ram && item.ram.price ? item.ram.price : 0;
-        const storagePrice = item.storage && item.storage.price ? item.storage.price : 0;
-        const gpuPrice = item.gpu && item.gpu.price ? item.gpu.price : 0;
-        return acc + item.basePrice + processorPrice + ramPrice + storagePrice + gpuPrice;
-      }, 0);
-
-      console.log('This is total price', totalPrice);
-      return totalPrice;
-    } else {
-      console.log('No matching item found');
-      return null;
-    }
-  }
-
   useEffect(() => {
+    function getTotalPrice(
+      selectedModel: MacBookModel | null,
+      selectedScreenSize: string | null,
+      selectedReleaseDate: string | null,
+      selectedProcessor: string | null,
+      selectedRam: string | null,
+      selectedStorage: string | null,
+      selectedGPU: string | null
+    ): number | null {
+      if (
+        !selectedModel ||
+        !selectedScreenSize ||
+        !selectedReleaseDate ||
+        (!selectedProcessor && !selectedRam && !selectedStorage && !selectedGPU)
+      ) {
+        return null;
+      }
+
+      const matchedItems = data.filter(
+        (item) =>
+          item.model === selectedModel &&
+          item.screenSize === selectedScreenSize &&
+          item.releaseDate === selectedReleaseDate &&
+          item.processor.type === selectedProcessor &&
+          item.ram.size === selectedRam &&
+          item.storage.type === selectedStorage &&
+          item.gpu.type === selectedGPU
+      );
+
+      console.log('Matched Items:', matchedItems);
+
+      if (matchedItems.length > 0) {
+        const totalPrice = matchedItems.reduce((acc, item) => {
+          const processorPrice = item.processor && item.processor.price ? item.processor.price : 0;
+          const ramPrice = item.ram && item.ram.price ? item.ram.price : 0;
+          const storagePrice = item.storage && item.storage.price ? item.storage.price : 0;
+          const gpuPrice = item.gpu && item.gpu.price ? item.gpu.price : 0;
+          return acc + item.basePrice + processorPrice + ramPrice + storagePrice + gpuPrice;
+        }, 0);
+
+        console.log('This is total price', totalPrice);
+        return totalPrice;
+      } else {
+        console.log('No matching item found');
+        return null;
+      }
+    }
     const price = getTotalPrice(
       selectedModel,
       selectedScreenSize,
@@ -142,7 +124,18 @@ const SellAppleLaptops: React.FC = () => {
       setTotalPRice(price);
       console.log(totalPrice);
     }
-  }, [selectedStorage, selectedGPU]);
+  }, [
+    setTotalPRice,
+    selectedModel,
+    selectedScreenSize,
+    selectedReleaseDate,
+    selectedProcessor,
+    selectedRam,
+    selectedStorage,
+    selectedGPU,
+    totalPrice,
+    data
+  ]);
 
   // ... existing code
 

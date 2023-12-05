@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/filename-case */
+
 import mongoose, { Document, Model, model } from 'mongoose';
 
 interface PhoneModel extends Document {
@@ -8,6 +10,7 @@ interface PhoneModel extends Document {
   price: number;
   userId: mongoose.Schema.Types.ObjectId; // Updated type to match schema definition
   status: string;
+  instantCash: boolean;
 }
 
 const phoneSubmissionSchema = new mongoose.Schema(
@@ -17,6 +20,7 @@ const phoneSubmissionSchema = new mongoose.Schema(
     condition: String,
     color: String,
     price: Number,
+    instantCash: Boolean,
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'user' // Ensure this matches your User model name

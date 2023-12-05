@@ -48,6 +48,7 @@ const IphonePriceSlider: React.FC<IphonePriceSliderProps> = ({
   totalIphonePrice
 }: IphonePriceSliderProps) => {
   const [selectediPhonePrice, setPrice] = useState(0); // Initialize state with totalPrice prop
+  const [instantCash, setInstantCash] = useState(false); // New state variable for instantCash
 
   useEffect(() => {
     setPrice(totalIphonePrice);
@@ -65,11 +66,24 @@ const IphonePriceSlider: React.FC<IphonePriceSliderProps> = ({
     selectediPhoneStorage,
     selectediPhoneCondition,
     selectediPhoneColor,
-    selectediPhonePrice
+    selectediPhonePrice,
+    instantCash
   };
 
   const maxPrice = Math.round(totalIphonePrice * 1.05);
   const minPrice = Math.round(totalIphonePrice * 0.82);
+
+  useEffect(
+    () => {
+      if (selectediPhonePrice === minPrice) {
+        setInstantCash(true);
+      } else {
+        setInstantCash(false);
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [selectediPhonePrice]
+  );
 
   return (
     <div className="  p-6  dark:bg-gray-800">
@@ -112,8 +126,12 @@ const IphonePriceSlider: React.FC<IphonePriceSliderProps> = ({
       />
 
       <div className="flex justify-between text-gray-800 dark:text-gray-400">
-        <span>Instant Cash</span>
-        <span>Suggested</span>
+        <span onClick={() => setPrice(minPrice)} style={{ cursor: 'pointer' }}>
+          Instant Cash
+        </span>
+        <span onClick={() => setPrice(totalIphonePrice)} style={{ cursor: 'pointer' }}>
+          Sells faster
+        </span>
         <span>Sells slower</span>
       </div>
 

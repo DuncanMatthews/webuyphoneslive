@@ -3,7 +3,7 @@ import PhoneSubmission from 'app/utils/model/retrieveIphoneSubmissions';
 import { NextResponse } from 'next/server';
 import MacBookModel from '../../../utils/model/macbook'; // Import the MacBook model
 
-export async function POST(request: Request, response: Response) {
+export async function POST(request: Request) {
   try {
     connectToDB();
     const data = await request.json();
@@ -11,8 +11,16 @@ export async function POST(request: Request, response: Response) {
     // Check if the submission is for an iPhone or a MacBook
     if (data.phoneModel) {
       // Handle iPhone submission
-      const { phoneModel, storage, condition, price, color, userId } = data;
-      await PhoneSubmission.create({ phoneModel, storage, condition, price, color, userId });
+      const { phoneModel, storage, condition, price, color, userId, instantCash } = data;
+      await PhoneSubmission.create({
+        phoneModel,
+        storage,
+        condition,
+        price,
+        color,
+        userId,
+        instantCash
+      });
       console.log('iPhone entry created successfully');
     } else if (data.macModel) {
       // Handle MacBook submission
@@ -20,12 +28,14 @@ export async function POST(request: Request, response: Response) {
         macModel,
         screen,
         year,
+        instantCash,
         processor,
         ram,
         storage,
         gpu,
         price,
         userId,
+
         submissionDate
       } = data;
       await MacBookModel.create({
@@ -38,7 +48,8 @@ export async function POST(request: Request, response: Response) {
         gpu,
         price,
         userId,
-        submissionDate
+        submissionDate,
+        instantCash
       });
       console.log('MacBook entry created successfully');
     } else {

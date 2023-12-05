@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/filename-case */
 'use client';
 
 import { useSession } from 'next-auth/react';
@@ -10,6 +11,7 @@ interface IPhoneDetailsProps {
   selectediPhoneColor: string | null;
   selectediPhoneCondition: string | null;
   selectediPhonePrice: number;
+  instantCash: boolean;
 }
 
 const IPhoneDetails: React.FC<IPhoneDetailsProps> = ({
@@ -17,7 +19,8 @@ const IPhoneDetails: React.FC<IPhoneDetailsProps> = ({
   selectediPhoneStorage,
   selectediPhoneColor,
   selectediPhoneCondition,
-  selectediPhonePrice
+  selectediPhonePrice,
+  instantCash
 }) => {
   const { data: session } = useSession();
   const [sucessMessage, setSucessMessage] = React.useState<string | null>(null);
@@ -48,10 +51,12 @@ const IPhoneDetails: React.FC<IPhoneDetailsProps> = ({
           condition: selectediPhoneCondition,
           color: selectediPhoneColor,
           price: selectediPhonePrice,
-          userId: session.user.id // Include the user's ID in the submission
+          userId: session.user.id, // Include the user's ID in the submission
+          instantCash: instantCash
         })
       });
 
+      console.log('response', response);
       if (!response.ok) {
         throw new Error('Network response was not ok ' + response.statusText);
       }

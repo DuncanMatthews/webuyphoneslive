@@ -4,8 +4,8 @@ import SignUp from 'app/signup/page';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import IphonePriceSlider from './components/selectFinalIphonePrice';
-import SideBar from './components/sideBar';
+import IphonePriceSlider from './components/select-final-iphone-price';
+import SideBar from './components/sidebar';
 
 type iPhoneModel =
   | 'iPhone 13'
@@ -40,26 +40,11 @@ interface iPhoneDataItem {
   };
 }
 
-const iPhoneConditions = ['Brand New', 'Used - Good', 'Used - Fair', 'Broken'];
-
-interface SellPhoneProps {
-  selectediPhoneModel: iPhoneModel | null;
-  setselectediPhoneModel: React.Dispatch<React.SetStateAction<iPhoneModel | null>>;
-  selectediPhoneColor: string | null;
-  setselectediPhoneColor: React.Dispatch<React.SetStateAction<string | null>>;
-  selectediPhoneStorage: string | null;
-  setselectediPhoneStorage: React.Dispatch<React.SetStateAction<string | null>>;
-  selectediPhoneCondition: string | null;
-  setselectediPhoneCondition: React.Dispatch<React.SetStateAction<string | null>>;
-}
-
 const SellPhone: React.FC = () => {
   const [selectediPhoneModel, setselectediPhoneModel] = useState<iPhoneModel | null>(null);
   const [selectediPhoneColor, setselectediPhoneColor] = useState<string | null>(null);
   const [selectediPhoneStorage, setselectediPhoneStorage] = useState<string | null>(null);
   const [selectediPhoneCondition, setselectediPhoneCondition] = useState<string | null>(null);
-
-  const [isSlideOverOpen, setIsSlideOverOpen] = useState(false);
 
   const getProgressStage = () => {
     if (selectediPhoneCondition) return 5;
@@ -107,7 +92,12 @@ const SellPhone: React.FC = () => {
     };
     calculateTotalPrice();
     console.log('this is total iphone price', totalIphonePrice);
-  }, [selectediPhoneModelPrice, selectedStorageOptionPrice, selectediPhoneConditionPrice]);
+  }, [
+    selectediPhoneModelPrice,
+    selectedStorageOptionPrice,
+    selectediPhoneConditionPrice,
+    totalIphonePrice
+  ]);
 
   return (
     <div className="dark:text-white">

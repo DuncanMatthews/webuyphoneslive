@@ -1,17 +1,15 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { useState } from 'react';
 import SustainabilityComponent from './components/featureComponent';
-import SmartPhoneBrands from './components/selectSmartPhoneBrand';
+import SmartPhoneBrands from './components/select-smart-phone-brand';
 import TradeInSteps from './components/tradeInSteps';
 import LaptopBrands from './sell-your-apple-macbook/components/selectedLaptopBrands';
 
 export default function SellYouriPhone() {
-  const router = useRouter();
   const [selectedElectronic, setSelectedElectronic] = useState<string | null>(null);
   const [selectedLaptopBrand, setSelectedLaptopBrand] = useState<string | null>(null);
-  const [isSlideOverOpen, setIsSlideOverOpen] = useState(false);
   const [selectedPhoneBrand, setselectedPhoneBrand] = useState<string | null>(null);
 
   interface ElectronicOption {
@@ -38,14 +36,15 @@ export default function SellYouriPhone() {
               key={electronic.label}
               onClick={() => {
                 setSelectedElectronic(electronic.label);
-                setIsSlideOverOpen(true);
               }}
               className="flex flex-col items-center rounded-lg border p-4 shadow-md hover:bg-gray-200 hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
-              <img
+              <Image
                 src={`/images/categories/${electronic.icon}`}
                 alt={electronic.label}
                 className="mb-2 h-24 w-24 rounded-lg object-contain"
+                height={100}
+                width={100}
               />
               <p className="text-center">{electronic.label}</p>
             </button>
@@ -71,8 +70,8 @@ export default function SellYouriPhone() {
 
       {selectedElectronic === 'Smartphone' && (
         <SmartPhoneBrands
-          setIsSlideOverOpen={setIsSlideOverOpen}
           setselectedPhoneBrand={setselectedPhoneBrand}
+          selectedPhoneBrand={selectedPhoneBrand}
         />
       )}
     </div>

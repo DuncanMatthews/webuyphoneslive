@@ -1,30 +1,3 @@
-interface MacBookDataItem {
-  model: MacBookModel;
-  screenSize: string;
-  releaseDate: string;
-  processor: {
-    type: string;
-    price: number | null;
-  };
-  ram: {
-    size: string;
-    price: number | null;
-  };
-  storage: {
-    type: string;
-    price: number | null;
-  };
-  gpu: {
-    type: string | null;
-    price: number | null;
-  };
-}
-
-interface ElectronicOption {
-  label: string;
-  icon: string;
-}
-
 type iPhoneModel =
   | 'iPhone 13'
   | 'iPhone 13 Pro'
@@ -45,8 +18,6 @@ type iPhoneModel =
   | 'iPhone X'
   | 'iPhone 8'
   | 'iPhone 8 Plus';
-
-type MacBookModel = 'Macbook Air' | 'Macbook Pro';
 
 interface SideBarProps {
   selectediPhoneModel: iPhoneModel | null;

@@ -1,6 +1,5 @@
 import FeaturedCarousel from 'components/carousels/feature-slider';
 import MyCarousel from 'components/carousels/slider';
-import TopSellers from 'components/layout/categories';
 import Footer from 'components/layout/footer';
 import { getCollectionProducts } from 'lib/shopify';
 import { Suspense } from 'react';
@@ -28,7 +27,7 @@ export default async function HomePage() {
       <Suspense>
         <MyCarousel />
         <FeaturedCarousel products={products} />
-        <TopSellers />
+        {/* <TopSellers /> */}
         <Suspense>
           <Footer />
         </Suspense>

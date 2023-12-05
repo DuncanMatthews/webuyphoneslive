@@ -40,10 +40,10 @@ const MenuBar = () => {
       </div>
       <div className="flex items-center overflow-hidden whitespace-nowrap">
         <div style={{ width: '1000px', overflowX: 'auto' }}>
-          <MenuLink href="https://example.com/good-deals" text="iPhone" />
+          <MenuLink href="/search/iphone" text="iPhone" />
           <MenuLink href="https://example.com/good-deals" text="Cell Phones" />
           <MenuLink href="https://example.com/good-deals" text="Samsung Galaxy" />
-          <MenuLink href="https://example.com/good-deals" text="MacBook" />
+          <MenuLink href="/search/pre-owned-macbooks" text="MacBook" />
           <MenuLink href="https://example.com/good-deals" text="iPad" />
           <MenuLink href="https://example.com/good-deals" text="AirPods" />
           <MenuLink href="https://example.com/good-deals" text="Apple Watch" />

@@ -11,6 +11,7 @@ interface MacBook extends Document {
   price: number;
   userId: mongoose.Schema.Types.ObjectId;
   status: string;
+  condition: string;
 }
 
 const macBookSchema = new Schema<MacBook>(
@@ -22,6 +23,7 @@ const macBookSchema = new Schema<MacBook>(
     ram: { type: String, required: true },
     storage: { type: String, required: true },
     gpu: { type: String, required: false },
+    condition: { type: String, required: true },
     price: { type: Number, required: true },
     userId: {
       type: mongoose.Schema.Types.ObjectId,

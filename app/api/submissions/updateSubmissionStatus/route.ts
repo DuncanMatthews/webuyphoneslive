@@ -1,7 +1,7 @@
 // Import statements should use the correct case for the model name
 import connectToDB from 'app/utils/connectMongo';
+import PhoneSubmission from 'app/utils/model/iphone';
 import MacBookModel from 'app/utils/model/macbook';
-import PhoneSubmission from 'app/utils/model/retrieveIphoneSubmissions';
 import { NextResponse } from 'next/server';
 
 interface UpdateSubmissionStatusRequest {

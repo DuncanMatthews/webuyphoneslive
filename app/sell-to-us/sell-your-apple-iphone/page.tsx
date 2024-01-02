@@ -100,7 +100,7 @@ const SellPhone: React.FC = () => {
   ]);
 
   return (
-    <div className="dark:text-white">
+    <div className="">
       {/* Progress Indicator */}
       <div className="min-w-fit	">
         <div className="flex min-w-fit  items-center	justify-center">
@@ -155,7 +155,7 @@ const SellPhone: React.FC = () => {
         </div>
       )}
 
-      <div className="dark:text-white">
+      <div className="">
         {/* Model Selection */}
         {!selectediPhoneModel && (
           <div className="flex flex-col items-center justify-center py-6 ">

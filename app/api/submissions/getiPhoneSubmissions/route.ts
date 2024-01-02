@@ -1,9 +1,9 @@
 // Import statements should use the correct case for the model name
 import connectToDB from 'app/utils/connectMongo';
-import PhoneSubmission from 'app/utils/model/retrieveIphoneSubmissions';
+import PhoneSubmission from 'app/utils/model/iphone';
 import { NextResponse } from 'next/server';
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
     // Initialize the database connection
     await connectToDB();

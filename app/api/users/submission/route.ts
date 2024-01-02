@@ -1,5 +1,5 @@
 import connectToDB from 'app/utils/connectMongo';
-import PhoneSubmission from 'app/utils/model/retrieveIphoneSubmissions';
+import PhoneSubmission from 'app/utils/model/iphone';
 import { NextResponse } from 'next/server';
 import MacBookModel from '../../../utils/model/macbook'; // Import the MacBook model
 

@@ -5,8 +5,8 @@ import MacBookModel from 'app/utils/model/macbook';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import SellMacbookSidebar from './components/SellMacbookSidebar';
-import PriceSlider from './components/selectFinalMacbookPrice';
+import PriceSlider from './components/select-final-macbook-price';
+import SellMacbookSidebar from './components/sell-macbook-sidebar';
 
 type MacBookModel = 'Macbook Air' | 'Macbook Pro'; // Add other models as needed
 
@@ -153,7 +153,7 @@ const SellAppleLaptops: React.FC = () => {
   const progressStage = getProgressStage();
 
   return (
-    <div className="dark:text-white">
+    <div className="">
       {/* Select Model */}
 
       {/* Progress Indicator */}

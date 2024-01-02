@@ -67,13 +67,13 @@ export function ProductDescription({ product }: { product: Product }) {
         {/*Third Div */}
         <div className="border-b">
           <div className=" py-6 sm:px-6">
-            <h2 className="text-lg font-medium text-gray-900 dark:text-white">Product details</h2>
+            <h2 className="text-lg font-medium text-gray-900 ">Product details</h2>
             <div className="mt-4 space-y-6 sm:mt-5 sm:space-y-5">
               <div className="flex items-center space-x-3">
                 <div className="rounded-md bg-gray-200 p-2 sm:p-4">
                   <CheckIcon className="h-4 w-4 text-gray-500 sm:h-6 sm:w-6" />
                 </div>
-                <span className="font-medium text-gray-700 dark:text-white">
+                <span className="font-medium text-gray-700 ">
                   Free delivery by{' '}
                   <span className="font-bold">
                     {deliveryDate.toLocaleDateString('en-US', {
@@ -89,23 +89,19 @@ export function ProductDescription({ product }: { product: Product }) {
                 <div className="rounded-md bg-gray-200 p-2 sm:p-4">
                   <CheckIcon className="h-4 w-4 text-gray-500 sm:h-6 sm:w-6" />
                 </div>
-                <span className="font-medium text-gray-700 dark:text-white">1-year warranty.</span>
+                <span className="font-medium text-gray-700 ">1-year warranty.</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="rounded-md bg-gray-200 p-2 sm:p-4">
                   <CheckIcon className="h-4 w-4 text-gray-500 sm:h-6 sm:w-6" />
                 </div>
-                <span className="font-medium text-gray-700 dark:text-white">
-                  Works with all carriers
-                </span>
+                <span className="font-medium text-gray-700 ">Works with all carriers</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="rounded-md bg-gray-200 p-2 sm:p-4">
                   <CheckIcon className="h-4 w-4 text-gray-500 sm:h-6 sm:w-6" />
                 </div>
-                <span className="font-medium text-gray-700 dark:text-white">
-                  Certified Pre Owned
-                </span>
+                <span className="font-medium text-gray-700 ">Certified Pre Owned</span>
               </div>
             </div>
           </div>
@@ -114,10 +110,7 @@ export function ProductDescription({ product }: { product: Product }) {
 
       <VariantSelector options={product.options} variants={product.variants} />
       {product.descriptionHtml ? (
-        <Prose
-          className="mb-6 mt-6 text-sm leading-tight dark:text-white/[60%]"
-          html={product.descriptionHtml}
-        />
+        <Prose className="/[60%] mb-6 mt-6 text-sm leading-tight" html={product.descriptionHtml} />
       ) : null}
       <div className="mt-3">
         {/* <Link href="#" onClick={toggleSlider}>

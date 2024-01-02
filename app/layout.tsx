@@ -42,7 +42,7 @@ const inter = Inter({
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="overflow-x-hidden bg-gray-100 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
+      <body className="overflow-x-hidden bg-gray-100 text-black selection:bg-teal-300   ">
         <AuthProvider>
           <Navbar />
           <Suspense>

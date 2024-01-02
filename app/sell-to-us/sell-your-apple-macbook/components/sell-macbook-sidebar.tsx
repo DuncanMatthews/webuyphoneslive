@@ -1,68 +1,13 @@
-interface MacBookDataItem {
-  model: MacBookModel;
-  screenSize: string;
-  releaseDate: string;
-  processor: {
-    type: string;
-    price: number | null;
-  };
-  ram: {
-    size: string;
-    price: number | null;
-  };
-  storage: {
-    type: string;
-    price: number | null;
-  };
-  gpu: {
-    type: string;
-    price: number | null;
-  };
-}
-
-interface ElectronicOption {
-  label: string;
-  icon: string;
-}
-
-type iPhoneModel =
-  | 'iPhone 13'
-  | 'iPhone 13 Pro'
-  | 'iPhone 13 Pro Max'
-  | 'iPhone 13 mini'
-  | 'iPhone 12'
-  | 'iPhone 12 Pro'
-  | 'iPhone 12 Pro Max'
-  | 'iPhone 12 mini'
-  | 'iPhone 11'
-  | 'iPhone 11 Pro'
-  | 'iPhone 11 Pro Max'
-  | 'iPhone SE (2nd generation)'
-  | 'iPhone SE (1st generation)'
-  | 'iPhone XR'
-  | 'iPhone XS'
-  | 'iPhone XS Max'
-  | 'iPhone X'
-  | 'iPhone 8'
-  | 'iPhone 8 Plus';
-
 type MacBookModel = 'Macbook Air' | 'Macbook Pro';
 
 export default function SellMacbookSidebar({
   selectedModel,
-  setSelectedModel,
   selectedScreenSize,
-  setSelectedScreenSize,
   selectedReleaseDate,
-  setSelectedReleaseDate,
   selectedProcessor,
-  setSelectedProcessor,
   selectedRam,
-  setSelectedRam,
   selectedStorage,
-  setSelectedStorage,
-  selectedGPU,
-  setSelectedGPU
+  selectedGPU
 }: {
   selectedModel: MacBookModel | null;
   setSelectedModel: React.Dispatch<React.SetStateAction<MacBookModel | null>>;

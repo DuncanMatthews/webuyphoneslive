@@ -30,7 +30,6 @@ const SubmitMacbookForm: React.FC<PriceProps> = ({
   const { data: session } = useSession();
   const [sucessMessage, setSucessMessage] = React.useState<string | null>(null);
   const [isLoading, setLoading] = useState(false);
-  const [submissionDate, setSubmissionDate] = useState<Date | null>(null);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
@@ -45,7 +44,6 @@ const SubmitMacbookForm: React.FC<PriceProps> = ({
 
       const now = new Date();
       // Store it in the state if you need to use it elsewhere in your component
-      setSubmissionDate(now);
 
       setTimeout(() => {
         setLoading(false);
@@ -100,7 +98,7 @@ const SubmitMacbookForm: React.FC<PriceProps> = ({
       </p>
       <button
         onClick={handleSubmit}
-        className={`my-3 flex items-center justify-center rounded-md border bg-gray-200 px-4 py-2 text-gray-900 hover:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-700 dark:text-gray-300 ${
+        className={`gray-300 my-3 flex items-center justify-center rounded-md border bg-gray-200 px-4 py-2 text-gray-900 hover:bg-gray-300 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-700 ${
           sucessMessage ? 'bg-green-500 text-white hover:bg-green-600' : ''
         }`}
         disabled={!!(isLoading || sucessMessage)}
@@ -108,7 +106,7 @@ const SubmitMacbookForm: React.FC<PriceProps> = ({
         <span>{sucessMessage ? 'Success' : 'sell your macbook'}</span>
         {isLoading && (
           <svg
-            className="ml-2 h-5 w-5 animate-spin text-gray-900 dark:text-gray-300"
+            className="gray-300 ml-2 h-5 w-5 animate-spin text-gray-900"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -136,6 +134,7 @@ const SubmitMacbookForm: React.FC<PriceProps> = ({
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
           </svg>
         )}
+        {error && <p className="text-sm text-red-500">{error}</p>}
       </button>
     </div>
   );

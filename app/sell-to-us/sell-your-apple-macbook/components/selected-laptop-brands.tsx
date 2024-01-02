@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
@@ -7,6 +8,7 @@ type SmartPhoneBrand = {
 };
 
 type SmartPhoneBrandsProps = {
+  // eslint-disable-next-line no-unused-vars
   setSelectedLaptopBrands: (brand: string) => void;
 };
 
@@ -36,10 +38,12 @@ const LaptopBrands: React.FC<SmartPhoneBrandsProps> = ({ setSelectedLaptopBrands
             onClick={() => handleBrandSelection(brand.label)}
             className="flex flex-col items-center space-x-2 rounded-lg border p-4 shadow hover:bg-gray-200  hover:text-black focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
-            <img
+            <Image
               src={`/images/Brand-Logos/${brand.icon}`} // assuming you have a similar folder for brand icons
               alt={brand.label}
               className="mb-2   h-24 w-24 rounded-lg object-contain"
+              height={97}
+              width={97}
             />
             <p className="text-center">{brand.label}</p>
           </button>

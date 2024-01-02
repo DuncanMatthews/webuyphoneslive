@@ -9,7 +9,7 @@
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { useEffect, useState } from 'react';
-import SubmitMacbookForm from './submitMacbookForm';
+import SubmitMacbookForm from './submit-macbook-form';
 
 type MacBookModel = 'Macbook Air' | 'Macbook Pro'; // Add other models as needed
 
@@ -64,13 +64,9 @@ const PriceSlider = ({
 
   return (
     <div className="  p-6  dark:bg-gray-800">
-      <div className="mb-4 text-xl font-semibold text-gray-900 dark:text-gray-100">
-        You will get :
-      </div>
-      <div className="mb-4 text-4xl font-bold text-gray-900 dark:text-gray-200">
-        R{selectedMacbookPrice}
-      </div>
-      <div className="mb-4 text-gray-800 dark:text-gray-300">
+      <div className="gray-100 mb-4 text-xl font-semibold text-gray-900">You will get :</div>
+      <div className="gray-200 mb-4 text-4xl font-bold text-gray-900">R{selectedMacbookPrice}</div>
+      <div className="gray-300 mb-4 text-gray-800">
         for your{' '}
         <span className="text-green font-bold">
           {selectedModel} {selectedScreenSize} {''}
@@ -80,7 +76,7 @@ const PriceSlider = ({
         </span>
       </div>
 
-      <div className="mb-4 text-gray-900 dark:text-gray-100">
+      <div className="gray-100 mb-4 text-gray-900">
         Or you can adjust the price using the slider below
       </div>
 
@@ -104,7 +100,7 @@ const PriceSlider = ({
         className="mb-4"
       />
 
-      <div className="flex justify-between text-gray-800 dark:text-gray-400">
+      <div className="gray-400 flex justify-between text-gray-800">
         <span>Instant Cash</span>
         <span>Suggested</span>
         <span>Sells slower</span>
@@ -112,7 +108,7 @@ const PriceSlider = ({
 
       <div className="mt-5">
         <SubmitMacbookForm {...MacbookDetails} />
-        <button className=" rounded-md border bg-gray-200 px-4 py-2 text-gray-900 dark:bg-gray-700 dark:text-gray-300">
+        <button className=" gray-300 rounded-md border bg-gray-200 px-4 py-2 text-gray-900 dark:bg-gray-700">
           No Thanks
         </button>
       </div>

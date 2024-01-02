@@ -1,5 +1,3 @@
-'use client';
-
 import { writeFile } from 'fs';
 import { utils, write } from 'xlsx';
 

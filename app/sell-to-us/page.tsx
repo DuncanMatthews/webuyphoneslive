@@ -5,7 +5,7 @@ import { useState } from 'react';
 import SustainabilityComponent from './components/featureComponent';
 import SmartPhoneBrands from './components/select-smart-phone-brand';
 import TradeInSteps from './components/tradeInSteps';
-import LaptopBrands from './sell-your-apple-macbook/components/selectedLaptopBrands';
+import LaptopBrands from './sell-your-apple-macbook/components/selected-laptop-brands';
 
 export default function SellYouriPhone() {
   const [selectedElectronic, setSelectedElectronic] = useState<string | null>(null);

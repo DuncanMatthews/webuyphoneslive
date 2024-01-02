@@ -87,13 +87,9 @@ const IphonePriceSlider: React.FC<IphonePriceSliderProps> = ({
 
   return (
     <div className="  p-6  dark:bg-gray-800">
-      <div className="mb-4 text-xl font-semibold text-gray-900 dark:text-gray-100">
-        You will get :
-      </div>
-      <div className="mb-4 text-4xl font-bold text-gray-900 dark:text-gray-200">
-        R{selectediPhonePrice}
-      </div>
-      <div className="mb-4 text-gray-800 dark:text-gray-300">
+      <div className="gray-100 mb-4 text-xl font-semibold text-gray-900">You will get :</div>
+      <div className="gray-200 mb-4 text-4xl font-bold text-gray-900">R{selectediPhonePrice}</div>
+      <div className="gray-300 mb-4 text-gray-800">
         for your{' '}
         {selectediPhoneModel &&
           selectediPhoneStorage &&
@@ -108,7 +104,7 @@ const IphonePriceSlider: React.FC<IphonePriceSliderProps> = ({
           )}
       </div>
 
-      <div className="mb-4 text-gray-900 dark:text-gray-100">
+      <div className="gray-100 mb-4 text-gray-900">
         Or you can adjust the price using the slider below
       </div>
 
@@ -125,7 +121,7 @@ const IphonePriceSlider: React.FC<IphonePriceSliderProps> = ({
         className="mb-4"
       />
 
-      <div className="flex justify-between text-gray-800 dark:text-gray-400">
+      <div className="gray-400 flex justify-between text-gray-800">
         <span onClick={() => setPrice(minPrice)} style={{ cursor: 'pointer' }}>
           Instant Cash
         </span>
@@ -137,7 +133,7 @@ const IphonePriceSlider: React.FC<IphonePriceSliderProps> = ({
 
       <div className="mt-4">
         <IPhoneDetails {...iphoneDetails} />
-        <button className=" rounded-md border bg-gray-200 px-4 py-2 text-gray-900 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-300">
+        <button className=" gray-300 rounded-md border bg-gray-200 px-4 py-2 text-gray-900 hover:bg-gray-300 dark:bg-gray-700">
           No Thanks
         </button>
       </div>

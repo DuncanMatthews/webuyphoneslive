@@ -12,7 +12,7 @@ const ProductPrice = ({
   <div className="flex flex-col">
     <span
       suppressHydrationWarning={true}
-      className={`${className} text-lg font-medium text-gray-900 dark:text-white`}
+      className={`${className} text-lg font-medium text-gray-900 `}
     >
       {`${new Intl.NumberFormat(undefined, {
         style: 'currency',
@@ -20,10 +20,7 @@ const ProductPrice = ({
         currencyDisplay: 'narrowSymbol'
       }).format(parseFloat(amount))}`}
     </span>
-    <p className="mb-0 mt-1 text-sm font-light text-gray-500 dark:text-gray-400">
-      {' '}
-      Before Trade-in{' '}
-    </p>
+    <p className="gray-400 mb-0 mt-1 text-sm font-light text-gray-500"> Before Trade-in </p>
   </div>
 );
 

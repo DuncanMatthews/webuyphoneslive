@@ -18,7 +18,7 @@ const Label = ({
         'lg:px-20 lg:pb-[35%]': position === 'center'
       })}
     >
-      <div className="backdrop-blur-md-neutral-800   flex flex-col rounded-full p-1 text-xs font-semibold text-black  dark:text-white">
+      <div className="backdrop-blur-md-neutral-800   flex flex-col rounded-full p-1 text-xs font-semibold text-black  ">
         <h4 className="mr-4 line-clamp-2 p-1  text-base leading-none tracking-tight">{title}</h4>
         <div className="mb-2">
           {Array.from({ length: 5 }).map((_, i) => (
